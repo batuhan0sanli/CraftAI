@@ -1,0 +1,23 @@
+name: Grammar Correction
+description: Convert ungrammatical statements into standard English.
+author: [OpenAI]
+version: 1.0
+tags:
+  - Transform
+  - Natural Language
+craft:
+  - module: text_input
+    var: text
+    label: Write a sentence with bad grammar.
+    placeholder: "She no went to the market."
+  - module: openai
+    endpoint: chat_completion
+    var: corrected_text
+    messages:
+      - role: system
+        text: "You will be provided with statements, and your task is to convert them to standard English."
+      - role: user
+        text: "{text}"
+    # todo: add a way to specify the engine
+  - module: text
+    text: "{corrected_text}"
