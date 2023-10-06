@@ -1,0 +1,5 @@
+#[modules]
+#module_list = ['grammer_correction']
+
+[openai]
+api_key = 'YOUR_API_KEY_HERE'
