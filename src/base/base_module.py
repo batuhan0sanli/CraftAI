@@ -22,4 +22,7 @@ class BaseModule(ABC):
         """Build the module."""
         response = self.build_method()
         if 'var' in self.data:
-            self.variables.set(self.data['var'], response)
+            if response:
+                self.variables.set(self.data['var'], response)
+            else:
+                self.variables.set(self.data['var'], '')
