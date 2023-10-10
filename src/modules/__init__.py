@@ -3,6 +3,7 @@ __all__ = ['ModuleType']
 from enum import Enum, EnumMeta, unique
 from src.modules.text_input import TextInput
 from src.modules.text import Text
+from src.modules.openai import OpenAI
 
 
 class EnumMetaAssert(EnumMeta):
@@ -17,4 +18,4 @@ class EnumMetaAssert(EnumMeta):
 class ModuleType(Enum, metaclass=EnumMetaAssert):
     text_input = TextInput
     text = Text
-    # openai = 'openai'
+    openai = OpenAI
