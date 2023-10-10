@@ -7,5 +7,5 @@ from .schema import ModuleSchema
 class Text(BaseModule):
     schema = ModuleSchema
 
-    def build(self) -> None:
+    def build_method(self) -> None:
         write(self.data['text'].format(**self.variables))

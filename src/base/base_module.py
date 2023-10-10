@@ -14,6 +14,12 @@ class BaseModule(ABC):
         self.variables = variables
 
     @abstractmethod
-    def build(self) -> None:
+    def build_method(self) -> None:
         """Build the module."""
         pass
+
+    def build(self) -> None:
+        """Build the module."""
+        response = self.build_method()
+        if 'var' in self.data:
+            self.variables.set(self.data['var'], response)

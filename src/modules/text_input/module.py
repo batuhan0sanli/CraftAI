@@ -7,6 +7,5 @@ from .schema import TextInputSchema
 class TextInput(BaseModule):
     schema = TextInputSchema
 
-    def build(self) -> None:
-        res = text_input(label=self.data['label'], value=self.data['placeholder'])
-        self.variables.set(self.data['var'], res)
+    def build_method(self) -> None:
+        return text_input(label=self.data['label'], value=self.data['placeholder'])
