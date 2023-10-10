@@ -15,5 +15,6 @@ class ModuleBuilder:
     def build(self):
         self.control()
         module = self.raw_data.pop('module')
+        print("Building module", module)  # todo: convert to logger
         module_type = ModuleType.__getitem__(module)
         module_type.value(self.raw_data, self.variables, self.container).build()
