@@ -10,8 +10,6 @@ class OpenAI(BaseModule):
     schema = ModuleSchema
 
     def build_method(self) -> None:
-        print("OpenAI")
-        print(self.data)
         messages = self.data['messages']
         messages = [
             {
