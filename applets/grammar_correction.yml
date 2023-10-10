@@ -15,9 +15,8 @@ craft:
     var: corrected_text
     messages:
       - role: system
-        text: "You will be provided with statements, and your task is to convert them to standard English."
+        content: "You will be provided with statements, and your task is to convert them to standard English."
       - role: user
-        text: "{text}"
-    # todo: add a way to specify the engine
+        content: "{text}"
   - module: text
     text: "{corrected_text}"
