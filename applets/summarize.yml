@@ -1,0 +1,33 @@
+name: Summarize
+description: Summarize a text with a given length.
+author: [Batuhan Şanlı]
+version: "1.0"
+tags:
+  - Transform
+  - Natural Language
+craft:
+  - module: columns
+    spec: 2
+    modules:
+      - module: text_input
+        label: Max Limit
+        var: limit
+      - module: selectbox
+        label: Limit Type
+        var: limit_type
+        options:
+          - Words
+          - Sentences
+  - module: text_area_input
+    var: text_input
+    label: Text
+  - module: openai
+    endpoint: chat_completion
+    var: response
+    messages:
+      - role: system
+        content: "Your task is to generate a short summary of given text. Summarize, in own language, in at most {limit} {limit_type}."
+      - role: user
+        content: "{text_input}"
+  - module: text
+    text: "{response}"
