@@ -38,5 +38,6 @@ class PageBuilder:
         st.title(self.page['name'])
         st.markdown(self.page['description'])
         st.markdown('---')
+        container = st.container()
         for craft in self.page['craft']:
-            ModuleBuilder(craft, variables).build()
+            ModuleBuilder(craft, variables, container).build()

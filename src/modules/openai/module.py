@@ -20,7 +20,7 @@ class OpenAI(BaseModule):
         response_text = self.data['var'] if 'var' in self.data else None
 
         if self.data['endpoint'] == OpenAIEndpoint.chat_completion:
-            clicked = button("Send", type="primary")
+            clicked = self.container.button("Send", type="primary")
             if clicked:
                 with loading(self.variables, response_text):
                     response = OpenAIClient().chat_completion(messages)

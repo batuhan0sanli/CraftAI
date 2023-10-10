@@ -3,9 +3,10 @@ from src.variables import Variables
 
 
 class ModuleBuilder:
-    def __init__(self, raw_data: dict, variables: Variables):
+    def __init__(self, raw_data: dict, variables: Variables, container):
         self.raw_data = raw_data
         self.variables = variables
+        self.container = container
 
     def control(self):
         if 'module' not in self.raw_data:
@@ -15,4 +16,4 @@ class ModuleBuilder:
         self.control()
         module = self.raw_data.pop('module')
         module_type = ModuleType.__getitem__(module)
-        module_type.value(self.raw_data, self.variables).build()
+        module_type.value(self.raw_data, self.variables, self.container).build()

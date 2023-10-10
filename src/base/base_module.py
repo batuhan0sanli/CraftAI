@@ -9,9 +9,10 @@ class BaseModule(ABC):
 
     schema: BaseSchema
 
-    def __init__(self, data: dict, variables: Variables):
+    def __init__(self, data: dict, variables: Variables, container):  # todo: add container type
         self.data = self.schema().load(data)
         self.variables = variables
+        self.container = container
 
     @abstractmethod
     def build_method(self) -> None:
