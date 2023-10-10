@@ -11,7 +11,10 @@ class TextObj(object):
         if isinstance(self.text, Enum):
             return self.text.value
         # Parse variables
-        return self.text.format(**self.variables)
+        try:
+            return self.text.format(**self.variables)
+        except KeyError:
+            raise Exception(f"Variable not found: {self.text}")
 
     def __repr__(self) -> str:
         return self.__str__()
