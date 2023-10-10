@@ -22,4 +22,5 @@ class OpenAIClient:
             temperature=config['openai'].get('temperature', 0),
             max_tokens=config['openai'].get('max_tokens', 256),
         )
+        print("Used token count:", completion.usage.total_tokens)
         return completion.choices[0].message.content
