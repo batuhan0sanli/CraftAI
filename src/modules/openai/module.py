@@ -1,3 +1,4 @@
+from streamlit import button
 from src.clients import OpenAIClient
 from src.base.base_module import BaseModule
 from src.utils import TextObj, loading
@@ -21,6 +22,8 @@ class OpenAI(BaseModule):
         response_text = self.data['var'] if 'var' in self.data else None
 
         if self.data['endpoint'] == OpenAIEndpoint.chat_completion:
-            with loading(self.variables, response_text):
-                response = OpenAIClient().chat_completion(messages)
-        return response
+            clicked = button("Send", type="primary")
+            if clicked:
+                with loading(self.variables, response_text):
+                    response = OpenAIClient().chat_completion(messages)
+                return response
