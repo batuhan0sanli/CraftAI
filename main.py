@@ -8,11 +8,7 @@ yaml_list = os.listdir('applets')
 
 st.set_page_config(
     page_title='CraftAI',
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }
+    page_icon=':robot_face:',
 )
 
 hide_streamlit_style = """
