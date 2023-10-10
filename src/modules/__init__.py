@@ -6,6 +6,7 @@ from src.modules.openai import OpenAI
 from src.modules.text import Text
 from src.modules.text_area_input import TextAreaInput
 from src.modules.text_input import TextInput
+from src.modules.columns import Columns
 
 
 class EnumMetaAssert(EnumMeta):
@@ -22,3 +23,4 @@ class ModuleType(Enum, metaclass=EnumMetaAssert):
     text = Text
     openai = OpenAI
     text_area_input = TextAreaInput
+    columns = Columns
