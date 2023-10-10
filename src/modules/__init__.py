@@ -7,6 +7,7 @@ from src.modules.text import Text
 from src.modules.text_area_input import TextAreaInput
 from src.modules.text_input import TextInput
 from src.modules.columns import Columns
+from src.modules.selectbox import SelectBox
 
 
 class EnumMetaAssert(EnumMeta):
@@ -24,3 +25,4 @@ class ModuleType(Enum, metaclass=EnumMetaAssert):
     openai = OpenAI
     text_area_input = TextAreaInput
     columns = Columns
+    selectbox = SelectBox
