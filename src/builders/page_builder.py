@@ -29,15 +29,6 @@ class PageBuilder:
         variables = Variables()
         variables.clear()
 
-        st.set_page_config(
-            page_title=self.page['name'],
-            menu_items={
-                'Get Help': 'https://www.extremelycoolapp.com/help',
-                'Report a bug': "https://www.extremelycoolapp.com/bug",
-                'About': "# This is a header. This is an *extremely* cool app!"
-            }
-        )
-
         st.title(self.page['name'])
         st.markdown(self.page['description'])
         st.markdown(f"**Author**: {', '.join(self.page['author'])}")
