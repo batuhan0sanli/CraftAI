@@ -1,7 +1,7 @@
 name: Grammar Correction
 description: Convert ungrammatical statements into standard English.
 author: [OpenAI]
-version: 1.0
+version: "1.0"
 tags:
   - Transform
   - Natural Language
