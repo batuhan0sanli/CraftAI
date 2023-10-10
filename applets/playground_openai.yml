@@ -1,0 +1,24 @@
+name: Playground OpenAI
+description: Playground OpenAI with System and User messages.
+author: [Batuhan Şanlı]
+version: "1.0"
+tags:
+  - Playground
+  - Natural Language
+craft:
+  - module: text_area_input
+    var: system_prompt
+    label: SYSTEM Prompt
+  - module: text_area_input
+    var: user_prompt
+    label: USER Prompt
+  - module: openai
+    endpoint: chat_completion
+    var: response
+    messages:
+      - role: system
+        content: "{system_prompt}"
+      - role: user
+        content: "{user_prompt}"
+  - module: text
+    text: "{response}"
