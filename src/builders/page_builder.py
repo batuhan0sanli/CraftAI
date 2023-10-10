@@ -29,11 +29,14 @@ class PageBuilder:
         variables = Variables()
         variables.clear()
 
+        st.sidebar.title(self.page['name'])
+        st.sidebar.markdown(self.page['description'])
+        st.sidebar.markdown(f"**Author**: {', '.join(self.page['author'])}")
+        st.sidebar.markdown(f"**Version**: {self.page['version']}")
+        st.sidebar.markdown(f"**Tags**: {', '.join(self.page['tags'])}")
+
         st.title(self.page['name'])
         st.markdown(self.page['description'])
-        st.markdown(f"**Author**: {', '.join(self.page['author'])}")
-        st.markdown(f"**Version**: {self.page['version']}")
-        st.markdown(f"**Tags**: {', '.join(self.page['tags'])}")
         st.markdown('---')
         for craft in self.page['craft']:
             ModuleBuilder(craft, variables).build()
