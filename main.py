@@ -2,7 +2,7 @@ import os
 
 import streamlit as st
 
-from src.builders.page_builder import PageBuilder
+from src import PageBuilder
 
 yaml_list = os.listdir('applets')
 
