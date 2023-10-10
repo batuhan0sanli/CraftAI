@@ -1,4 +1,4 @@
-#[services]
+#[applets]
 #service_list = ['grammer_correction']
 
 [openai]
