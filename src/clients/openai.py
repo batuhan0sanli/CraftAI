@@ -1,13 +1,15 @@
-from src.config import config
 import openai
-from typing import List
+
+from src.config import config
 
 
 class OpenAIClient:
     instance = None
 
     def __init__(self):
-        openai.api_key = config['openai']['api_key']
+        if not config.OPENAI_API_KEY:
+            raise Exception('OPENAI_API_KEY not defined')
+        openai.api_key = config.OPENAI_API_KEY
 
     def __new__(cls):
         if not cls.instance:
@@ -17,10 +19,10 @@ class OpenAIClient:
     @staticmethod
     def chat_completion(messages):
         completion = openai.ChatCompletion.create(
-            model=config['openai'].get('model', 'gpt-3.5-turbo'),
+            model=config.OPENAI_MODEL,
             messages=messages,
-            temperature=config['openai'].get('temperature', 0),
-            max_tokens=config['openai'].get('max_tokens', 256),
+            temperature=config.OPENAI_TEMPERATURE,
+            max_tokens=config.OPENAI_MAX_TOKENS,
         )
         print("Used token count:", completion.usage.total_tokens)
         return completion.choices[0].message.content
