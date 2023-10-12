@@ -8,6 +8,7 @@ streamlit = "*"
 pyyaml = "*"
 openai = "*"
 marshmallow = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
